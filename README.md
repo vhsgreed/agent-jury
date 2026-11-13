@@ -71,8 +71,15 @@ one of my standing interests. Five free models, three runs each, 15 calls:
 | One juror flipped | reject, uphold, uphold |
 | Result | **hung** |
 
-v2 would have reported this as a clear `uphold`. v3 reports what happened: the panel leaned
-one way, and most of the failure was free-tier rate limiting, not disagreement. The human
+v2 would not have said `hung`. Replaying v2's rule on each juror's first run, two jurors
+drop, the two that answered split one `uphold` and one `reject`, and v2 breaks that tie as
+`reject`; the fifth juror's v2 vote depended on its reasoning field, which was not kept. So
+v2 would have returned `reject` or `uphold` with full confidence, from one or two answers out
+of five seats. (An earlier version of this README said v2 "would have reported this as a
+clear `uphold`". That was a guess I had not checked; corrected 2026-11-13.)
+
+v3 reports what happened: the panel leaned one way, and most of the failure was free-tier
+rate limiting, not disagreement. The human
 decided the dispute; the jury's record sits next to the decision, bound by hash.
 
 One caution on reading the lean: the dispute was whether an agent should accept being stopped
